@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+<body id="b">
+ 
+    <script>
+        var arr =['blue','pink','green','red','yellow','aqua']
+        var i=0
+        function User()
+        {
+
+            var b = document.getElementById('b');
+            b.style.backgroundColor = arr[i]
+            i++
+            if(arr.length <= i)
+            {
+                i=0
+            }
+            //hi, good morning, good afternoon, bye-bye, just like this but in the hi
+            
+        }
+    </script>
+    <button onclick="User()">Click here</button>
+    <a href=""><button>refresh</button></a>
+    
+</body>
+</html>
