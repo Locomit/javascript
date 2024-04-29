@@ -6,8 +6,38 @@
     <title>form validation</title>
 </head>
 <body>
+    <script>
+        function Data(){
+            fname = document.getElementById('fname1').value
+            age = parseInt(document.getElementById('age1').value)
+            console.log(age)
+            contact=document.getElementById('contact1').value
+            
+
+            
+            if(fname == ""|| fname==null){
+                alert("First name is required")
+            }
+            else if(age =="" || age == null || age<0){
+                alert("Age required... age should not in nagative")
+            }
+            else if(contact.length !=10){
+                alert("contact number should be just 10 numbers")
+            }
+            document.getElementById('f').innerHTML = fname
+            document.getElementById('a').innerHTML = age
+            document.getElementById('c').innerHTML = contact  
+            // if you want to show the output on the screen then above steps are used
+        }
+    </script>
+    <h3>FirstName:<span id='f'></span></h3>
+    <h3>Age:<span id='a'></span></h3>
+    <h3>Contact:<span id='c'></span></h3>
     <form name="fn">
-        
+        fname:<input type="text" name="fname" id="fname1"/><br><br>
+        age:<input type="number" name="age" id="age1"/><br><br>
+        contact:<input type="number" name="contact" id="contact1"/>
     </form>
+    <input type="submit" onclick="Data()"/>
 </body>
 </html>
