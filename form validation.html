@@ -29,14 +29,23 @@
             document.getElementById('c').innerHTML = contact  
             // if you want to show the output on the screen then above steps are used
         }
+        function Contact(){
+            contact=document.getElementById('contact1').value
+            document.getElementById('c').innerHTML = contact  
+            if (contact.length>10){
+                alert('You cannot enter more than 10 numbers')
+            }
+        }
     </script>
     <h3>FirstName:<span id='f'></span></h3>
     <h3>Age:<span id='a'></span></h3>
+    <!--below id is for function Contact()-->
     <h3>Contact:<span id='c'></span></h3>
+    <!--above steps are also for the use the show the o/p on the screen-->
     <form name="fn">
         fname:<input type="text" name="fname" id="fname1"/><br><br>
         age:<input type="number" name="age" id="age1"/><br><br>
-        contact:<input type="number" name="contact" id="contact1"/>
+        contact:<input type="number" name="contact" id="contact1" oninput="Contact()"/>
     </form>
     <input type="submit" onclick="Data()"/>
 </body>
