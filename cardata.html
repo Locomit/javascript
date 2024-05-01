@@ -36,7 +36,9 @@
   <script>
     modecar = ""
     function CarModel(type){
-        honda =[[1,'Honda Accord Hybrid',4321000,'images/HAH.webp']]
+        honda =[[1,'Honda Accord Hybrid',4321000,'images/HAH.webp'],[2,'Honda Amaze',632000,'images/Hondaamaze.webp']]
+        MSdata =[[1,'Maruti Suzuki Swift',920000,'images/maruti1.webp'],[2,'Maruti Suzuki Brezza',829000,'images/maruti2.webp']]
+        tatadata =[[1,'Tata Punch',718000,'images/tata1.webp'],[2,'Tata Nexon',915000,'images/tata2.webp']]
         if(type == 'Honda'){
             for(i=0; i<honda.length; i++){
             modecar += "<tr>"
@@ -54,7 +56,41 @@
             document.getElementById('camodata').innerHTML = modecar
             document.getElementById('cam').style.display = 'block';
         }
-    }   
+        else if(type == 'Maruti Suzuki'){
+            for(i=0; i<MSdata.length; i++){
+            modecar += "<tr>"
+                for(j=0; j<MSdata[i].length; j++){
+                    if(j==3){
+                        modecar+= `<td><img src='${MSdata[i][j]}' width='50px' height='50px'/></td>`
+                    }
+                    else{
+                        modecar+=`<td>${MSdata[i][j]}</td>`
+                    }
+                }
+                modecar+= "</tr>"
+                console.log(modecar)
+            }
+            document.getElementById('camodata').innerHTML = modecar
+            document.getElementById('cam').style.display = 'block';
+    }
+    else if(type == 'Tata Motors'){
+            for(i=0; i<tatadata.length; i++){
+            modecar += "<tr>"
+                for(j=0; j<tatadata[i].length; j++){
+                    if(j==3){
+                        modecar+= `<td><img src='${tatadata[i][j]}' width='50px' height='50px'/></td>`
+                    }
+                    else{
+                        modecar+=`<td>${tatadata[i][j]}</td>`
+                    }
+                }
+                modecar+= "</tr>"
+                console.log(modecar)
+            }
+            document.getElementById('camodata').innerHTML = modecar
+            document.getElementById('cam').style.display = 'block';
+    }
+}   
   </script>
 </body>
 </html>
