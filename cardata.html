@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car model details</title>
+    <style>
+        table,td,th{
+          border: 2px solid black;
+          border-collapse: collapse;
+          text-align: center;
+         
+          
+        }
+        table{
+          display: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="CarModel('Honda')">Honda</button>
+  <button onclick="CarModel('Maruti Suzuki')">Maruti Suzuki</button>
+  <button onclick="CarModel('Tata Motors')">Tata Motors</button>
+
+  <table width="500" id="cam">
+    <tr>
+        <th>Serial No.</th>
+        <th> Model Name</th>
+        <th>Prize</th>
+        <th>Car Model Images</th>
+    </tr>
+    <tbody id="camodata">
+    </tbody>
+  </table>
+
+  <script>
+    modecar = ""
+    function CarModel(type){
+        honda =[[1,'Honda Accord Hybrid',4321000,'images/HAH.webp']]
+        if(type == 'Honda'){
+            for(i=0; i<honda.length; i++){
+            modecar += "<tr>"
+                for(j=0; j<honda[i].length; j++){
+                    if(j==3){
+                        modecar+= `<td><img src='${honda[i][j]}' width='50px' height='50px'/></td>`
+                    }
+                    else{
+                        modecar+=`<td>${honda[i][j]}</td>`
+                    }
+                }
+                modecar+= "</tr>"
+                console.log(modecar)
+            }
+            document.getElementById('camodata').innerHTML = modecar
+            document.getElementById('cam').style.display = 'block';
+        }
+    }   
+  </script>
+</body>
+</html>
