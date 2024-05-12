@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Convertor</title>
+</head>
+<body>
+    <script>
+        /*
+    fetch(`https://api.exchangerate-api.com/v4/latest/INR`)
+            .then(re => re.json())
+            .then(data => {
+               d = data['rates']
+               for(i in d){
+                document.getElementById('from').innerHTML +=`<option value="${i}">${i}</option>`
+                document.getElementById('to').innerHTML +=`<option value="${i}">${i}</option>`
+               }
+            }
+        })
+        */
+        function Convertor(){
+            from = document.fm.from.value;
+            to = document.fm.to.value;
+            amt = parsefloat(document.fm.amt.value);
+           // document.write(from,to)
+            fetch(`https://api.exchangerate-api.com/v4/latest/${from}`)
+            .then(re => re.json())
+            .then(data => {
+                console.log(data['rates'][to])
+                camount = data['rates'][to]
+                document.getElementsById('h1').innerHTML = camount*amt;
+
+            })
+        }
+    </script>
+    <form name="fm" >
+        From:
+        <select name="from">
+            <option value="INR">Indian Rupees</option>
+            <option value="USD">American Dollars</option>
+            <option value="QAR">Qatar Riyal</option>
+        </select>
+        <br><br>
+
+        To:
+        <select name="from">
+            <option value="INR">Indian Rupees</option>
+            <option value="USD">American Dollars</option>
+            <option value="QAR">Qatar Riyal</option>
+        </select>
+        <br><br>
+
+        Amount:<input type="number" placeholder="Enter Amount To Convert" name="amt"/>
+
+    </form>
+    <input type="submit" value="Convert" onclick="Convertor()"/>
+    <h3>converted Amount : <span id="h1"></span></h3>
+</body>
+</html>
