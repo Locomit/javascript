@@ -7,12 +7,30 @@
 </head>
 <body>
     <script>
+        function Data(){
+            Name = document.getElementById('Fname').value
+            age = document.getElementById('age1').value
+            //Nationality = document.getElementsById('Na1').value
 
+            if(age>=18){
+                document.write("You are Eligible for voting")
+            }
+            else{
+                document.write("You are not Eligible for voting")
+            }
+        }
+            function Nation(){
+                Nationality = document.getElementsById('Na1').value
+                
+            }
+        
     </script>
     <form>
         Name:<input type="text" name="name" id="Fname" required/><br><br>
         age:<input type="number" name="age" id="age1" required/><br><br>
-        Nationality:
+        Nationality:<input type="text" name="Nationality" id="Na1" oninput="Nation()"/><br><br>
+        <button id="btn" onclick="Data()">Check here</button>
     </form>
+    
 </body>
 </html>

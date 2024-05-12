@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency Convertor</title>
+    <style>
+         body {
+            margin: 0;
+            padding: 120px;
+            background-color: azure;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <script>
+         fetch(`https://api.exchangerate-api.com/v4/latest/INR`)
+         .then(re=>re.json())
+         .then(data=>{
+            d=data['rates']
+            for(i in d){
+                document.getElementById('from').innerHTML += `<option value="${i}">${i}</option>`
+                document.getElementById('to').innerHTML += `<option value="${i}">${i}</option>`
+            }
+        })
+        function Convertor(){
+            from=document.fm.from.value;
+            to=document.fm.to.value;
+            amt=parseFloat(document.fm.amt.value);
+            fetch(`https://api.exchangerate-api.com/v4/latest/${from}`)
+            .then(re=>re.json())
+            .then(data=>{
+                console.log(data['rates'][to])
+                camount=data['rates'][to]
+                document.getElementById('h1').innerHTML=camount*amt;
+            })
+        }
+    </script>
+    <center><h2>Currency Convertor</h2></center>
+    <fieldset>
+        <legend style="text-align:right">-*-*-*-</legend>
+    <form name="fm">
+       <table><tr><td> From:</td><td>
+    <select name="from" id="from">
+        
+    </select></td></tr>
+      <tr><td>To:</td><td>
+      <select name="to" id="to">
+        
+    </select></td></tr>
+   <tr><td> Amount:</td><td><input type="number" placeholder="Enter amount to convert" name="amt" /></td></tr>
+     
+    <tr><td><h3>Converted Amount:<span id="h1"></span></h3></td></tr>
+</table>
+</form>
+<input type="submit" value="Convert" onclick="Convertor()"/>
+  </fieldset>  
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Voting Eligibility</title>
+</head>
+<body>
+    <script>
+        function Nation() {
+            var nationality= document.getElementById("nationality");
+            nationality.value = nationality.value.toUpperCase();
+        }
+
+        function Data() {
+             age = parseInt(document.getElementById("age").value);
+             nationality = document.getElementById("nationality").value;
+
+            if (age >= 18 && nationality == "INDIAN") {
+                alert("You are eligible to cast your vote!");
+            } else {
+                alert("You are not eligible to cast your vote.");
+            }
+        }
+    </script>
+    <form>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0">
+        <br>
+        <label for="nationality">Nationality:</label>
+        <input type="text" id="nationality" name="nationality" oninput="Nation()">
+        <br>
+        <button type="button" onclick="Data()">Check Here</button>
+    </form>
+
+    
+    
+</body>
+</html>
